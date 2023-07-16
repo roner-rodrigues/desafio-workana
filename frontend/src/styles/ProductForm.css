@@ -1,0 +1,17 @@
+/* ProductForm.css */
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+}
+
+.product-form label {
+    margin-bottom: 10px;
+}
+
+.product-form input, .product-form select {
+    width: 100%;
+    padding: 5px;
+}

@@ -3,12 +3,11 @@
 require_once  'Connection/db_config.php';
 require_once  'Repositories/ProductTypeRepository.php';
 
-// Definir cabeçalhos CORS
-header("Access-Control-Allow-Origin: *"); // Substitua por sua origem do React
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: GET");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+// Handle CORS
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, OPTIONS');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept, Origin, Authorization');
+header('Access-Control-Allow-Credentials: true');
 
 // Verificar o método da requisição
 $method = $_SERVER['REQUEST_METHOD'];

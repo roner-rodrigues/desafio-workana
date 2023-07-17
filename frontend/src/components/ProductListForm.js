@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/get_products.php")
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
+    axios.get("http://localhost:8080/get_products.php")
+      .then((response) => setProducts(response.data))
       .catch((error) => console.error(error));
   }, []);
 

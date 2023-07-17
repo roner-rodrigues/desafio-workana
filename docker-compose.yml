@@ -6,6 +6,8 @@ services:
       context: ./build
     ports:
       - '3000:3000'
+    networks:
+      - app-network
 
   backend:
     build: 
@@ -14,6 +16,8 @@ services:
       - '8080:8080'
     depends_on:
       - db
+    networks:
+      - app-network
 
   db:
     image: postgres
@@ -24,3 +28,9 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

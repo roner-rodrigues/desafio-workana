@@ -5,9 +5,9 @@ class ProductTypeService
 {
     private $productTypeRepository;
 
-    public function __construct()
+    public function __construct(PDO $db)
     {
-        $this->productTypeRepository = new ProductTypeRepository();
+        $this->productTypeRepository = new ProductTypeRepository($db);
     }
 
     public function createProductType($description, $taxRate)

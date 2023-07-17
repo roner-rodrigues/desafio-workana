@@ -20,7 +20,7 @@ if ($method == 'OPTIONS') {
         $data = json_decode(file_get_contents("php://input"), true);
 
         if (!empty($data['description']) && !empty($data['taxRate'])) {
-            $service = new ProductTypeService();
+            $service = new ProductTypeService($db);
 
             $service->createProductType($data['description'], $data['taxRate']);
 

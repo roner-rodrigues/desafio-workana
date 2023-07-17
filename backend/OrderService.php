@@ -4,20 +4,22 @@ require_once 'OrderItemRepository.php';
 
 class OrderService
 {
+    private $db;
     private $orderRepository;
     private $orderItemRepository;
 
-    public function __construct()
-    {
-        $this->orderRepository     = new OrderRepository();
-        $this->orderItemRepository = new OrderItemRepository();
+    public function __construct(PDO $db) 
+    {   
+        $this->db = $db;
+        $this->orderRepository = new OrderRepository($db);
+        $this->orderItemRepository = new OrderItemRepository($db);
     }
 
     public function createOrder($customerId, $total, $totalTax, $orderItems)
     {
         try {
             // Start the transaction
-            $this->orderRepository->getConnection()->beginTransaction();
+            $this->db->beginTransaction();
 
             // Create and insert the order
             $order = new Order();
@@ -25,10 +27,7 @@ class OrderService
             $order->setTotal($total);
             $order->setTotalTax($totalTax);
 
-            $this->orderRepository->createOrder($order);
-
-            // Get the id of the order we just inserted
-            $orderId = $this->orderRepository->getLastInsertId();
+            $orderId = $this->orderRepository->createOrder($order);
 
             // Create and insert each of the order items
             foreach ($orderItems as $item) {
@@ -43,12 +42,12 @@ class OrderService
             }
 
             // Commit the transaction
-            $this->orderRepository->getConnection()->commit();
+            $this->db->commit();
             
             return true;
         } catch (\Throwable $th) {
             // Rollback the transaction
-            $this->orderRepository->getConnection()->rollBack();
+            $this->db->rollBack();
             
             throw $th;
         }

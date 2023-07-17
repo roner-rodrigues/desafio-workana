@@ -5,9 +5,9 @@ class ProductService
 {
     private $productRepository;
 
-    public function __construct()
+    public function __construct(PDO $db)
     {
-        $this->productRepository = new ProductRepository();
+        $this->productRepository = new ProductRepository($db);
     }
 
     public function createProduct($name, $productTypeId, $price)

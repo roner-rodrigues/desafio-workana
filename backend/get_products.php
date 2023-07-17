@@ -1,5 +1,5 @@
 <?php
-
+require_once 'db_config.php';
 require_once 'ProductRepository.php';
 require_once 'Product.php';  
 
@@ -9,7 +9,7 @@ header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-$productRepository = new ProductRepository();
+$productRepository = new ProductRepository($db);
 
 // $products = $productRepository->getProducts();
 $products = array_map(function($product) {

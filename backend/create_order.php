@@ -22,11 +22,12 @@ if ($method == 'OPTIONS') {
         // Validate request body
         if(!empty($data['items']))
             foreach($data['items'] as $item) {
-                if (empty($data['productId']) || empty($data['quantity']) ||
-                    empty($data['itemPrice']) || empty($data['itemTax'])) {
+                if (empty($item['productId']) || empty($item['quantity']) ||
+                    empty($item['itemPrice']) || empty($item['itemTax'])) {
 
                     http_response_code(400);
                     echo json_encode(["error" => "Unable to fulfil request. Data is incomplete."]);
+                    exit;
                 }
             }
         

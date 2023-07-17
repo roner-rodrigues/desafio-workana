@@ -38,6 +38,14 @@ const SalePage = () => {
         }));
     };
 
+    const removeFromCart = (productId) => {
+        setCart(prevCart => {
+            const updatedCart = { ...prevCart };
+            delete updatedCart[productId];
+            return updatedCart;
+        });
+    };
+
     const handleSubmit = async () => {
         const orderItems = Object.entries(cart).map(([productId, quantity]) => {
             const product = products.find(product => product.id === Number(productId));
@@ -86,7 +94,7 @@ const SalePage = () => {
     return (
         <div>
             <ProductSelectForm products={products} onAddToCart={addToCart} />
-            <Cart cart={cart} products={products} />
+            <Cart cart={cart} products={products} onRemoveFromCart={removeFromCart} />
             <button onClick={handleSubmit}>Submit Order</button>
         </div>
     );

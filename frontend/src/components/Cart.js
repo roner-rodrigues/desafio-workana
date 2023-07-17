@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Cart = ({ cart, products }) => {
+const Cart = ({ cart, products, onRemoveFromCart }) => {
     const calculateSubtotal = (productId, quantity) => {
-        const product = products.find(product => product.id === productId);
+        const product = products.find(product => product.id === Number(productId));
         return product.price * quantity;
     };
 
     const calculateTax = (productId, quantity) => {
-        const product = products.find(product => product.id === productId);
+        const product = products.find(product => product.id === Number(productId));
         return (product.productType.tax_rate / 100) * calculateSubtotal(productId, quantity);
     };
 
@@ -38,6 +38,7 @@ const Cart = ({ cart, products }) => {
                         <p>Quantity: {quantity}</p>
                         <p>Subtotal: {product ? calculateSubtotal(Number(productId), quantity).toFixed(2) : 'N/A'}</p>
                         <p>Tax: {product ? calculateTax(Number(productId), quantity).toFixed(2) : 'N/A'}</p>
+                        <button onClick={() => onRemoveFromCart(productId)}>Remove</button>
                     </div>
                 );
             })}

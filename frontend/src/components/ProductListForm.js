@@ -17,7 +17,6 @@ function ProductList() {
         <div key={product.id}>
           <h2>{product.name}</h2>
           <p>{product.price}</p>
-          {/* Add other fields as necessary */}
         </div>
       ))}
     </div>

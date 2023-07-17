@@ -13,7 +13,6 @@ const ProductSelectForm = ({ products, onAddToCart }) => {
     const handleSubmit = event => {
         event.preventDefault();
         onAddToCart(selectedProduct, quantity);
-        // setSelectedProduct('');
         setQuantity(1);
     };
 

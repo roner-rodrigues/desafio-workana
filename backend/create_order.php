@@ -20,6 +20,7 @@ if ($method == 'OPTIONS') {
         // Recover data from body request
         $data = json_decode(file_get_contents('php://input'), true);
 
+        // Validate request body
         if(!empty($data['items']))
             foreach($data['items'] as $item) {
                 if (empty($data['productId']) || empty($data['quantity']) ||
@@ -30,6 +31,7 @@ if ($method == 'OPTIONS') {
                 }
             }
         
+        // Validate request body
         if (!empty($data['customerId']) && !empty($data['total'] &&
             !empty($data['totalTax']))) {
             $service = new OrderService($db); 

@@ -1,6 +1,6 @@
 <?php
-require_once  'db_config.php';
-require_once  'OrderService.php';
+require_once  'Connection/db_config.php';
+require_once  'Services/OrderService.php';
 
 // Handle CORS
 header("Access-Control-Allow-Origin: *"); 

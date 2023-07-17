@@ -1,7 +1,7 @@
 <?php
-require_once 'db_config.php';
-require_once 'ProductRepository.php';
-require_once 'Product.php';  
+require_once 'Connection/db_config.php';
+require_once 'Repositories/ProductRepository.php';
+require_once 'Models/Product.php';  
 
 header("Access-Control-Allow-Origin: *"); 
 header("Content-Type: application/json; charset=UTF-8");

@@ -1,23 +1,20 @@
 <?php
-
-require_once 'db_config.php';
-require_once 'OrderItem.php';
+require_once 'Models/OrderItem.php';
 
 class OrderItemRepository 
 {
-    private $connection;
+    private $db;
 
-    public function __construct() 
+    public function __construct(PDO $db) 
     {
-        global $db;
-        $this->connection = $db;
+        $this->db = $db;
     }
 
     public function createOrderItem(OrderItem $orderItem) 
     {
         try {
             $sql = 'INSERT INTO order_items (order_id, product_id, quantity, item_price, item_tax) VALUES (?, ?, ?, ?, ?)';
-            $stmt = $this->connection->prepare($sql);
+            $stmt = $this->db->prepare($sql);
             $stmt->execute([
                 $orderItem->getOrderId(), 
                 $orderItem->getProductId(),

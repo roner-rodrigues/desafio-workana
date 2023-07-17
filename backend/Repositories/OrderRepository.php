@@ -1,5 +1,5 @@
 <?php
-require_once 'Order.php';
+require_once 'Models/Order.php';
 
 class OrderRepository 
 {

@@ -1,6 +1,6 @@
 <?php
-require_once 'OrderRepository.php';
-require_once 'OrderItemRepository.php';
+require_once 'Repositories/OrderRepository.php';
+require_once 'Repositories/OrderItemRepository.php';
 
 class OrderService
 {

@@ -1,7 +1,7 @@
 <?php
 
-require_once  'db_config.php';
-require_once  'ProductTypeRepository.php';
+require_once  'Connection/db_config.php';
+require_once  'Repositories/ProductTypeRepository.php';
 
 // Definir cabeçalhos CORS
 header("Access-Control-Allow-Origin: *"); // Substitua por sua origem do React

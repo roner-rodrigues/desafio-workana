@@ -1,5 +1,5 @@
 <?php
-require_once 'ProductTypeRepository.php';
+require_once 'Repositories/ProductTypeRepository.php';
 
 class ProductTypeService
 {

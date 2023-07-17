@@ -1,6 +1,6 @@
 <?php
-require_once 'Product.php';
-require_once 'ProductType.php';
+require_once 'Models/Product.php';
+require_once 'Models/ProductType.php';
 require_once 'ProductTypeRepository.php';
 
 class ProductRepository 

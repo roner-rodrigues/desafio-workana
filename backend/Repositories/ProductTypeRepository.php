@@ -1,5 +1,5 @@
 <?php
-require_once 'ProductType.php';
+require_once 'Models/ProductType.php';
 
 class ProductTypeRepository 
 {

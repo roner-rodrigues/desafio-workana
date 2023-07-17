@@ -1,8 +1,6 @@
 <?php
-// create_product_type.php
-
-require_once  'db_config.php';
-require_once  'ProductTypeService.php';
+require_once  'Connection/db_config.php';
+require_once  'Services/ProductTypeService.php';
 
 header("Access-Control-Allow-Origin: *"); 
 header("Content-Type: application/json; charset=UTF-8");

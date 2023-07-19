@@ -11,7 +11,11 @@ header('Access-Control-Allow-Credentials: true');
 
 // Verificar o método da requisição
 $method = $_SERVER['REQUEST_METHOD'];
-if ($method == 'GET') {
+if ($method == 'OPTIONS') {
+    // The request is a preflight request. Respond successfully:
+    http_response_code(200);
+    exit;
+} else if ($method == 'GET') {
     // A requisição é um GET, vamos lidar com isso
 
     // Criar um novo ProductTypeRepository
@@ -28,5 +32,8 @@ if ($method == 'GET') {
     // Retornar os tipos de produto como JSON
     http_response_code(200);
     echo json_encode($productTypesArray);
+} else {
+    http_response_code(405);
+    echo json_encode(["error" => "Method not allowed."]);
 }
 ?>

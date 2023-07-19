@@ -1,6 +1,6 @@
 <?php
 $host     = "db";
-$dbname   = "postgres";
+$dbname   = "workana_store";
 $user     = "postgres";
 $password = "password";
 

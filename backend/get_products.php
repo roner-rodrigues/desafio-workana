@@ -23,6 +23,7 @@ if ($method == 'OPTIONS') {
             return $product->toArray();
         }, $productRepository->getProducts());
 
+        http_response_code(200);
         echo json_encode($products);
     } catch (\Throwable $th) {
         http_response_code(500);

@@ -1,8 +1,6 @@
 <?php
-// $host     = "db";
-$host     = "localhost";
-// $dbname   = "postgres";
-$dbname   = "workana_db";
+$host     = "db";
+$dbname   = "postgres";
 $user     = "postgres";
 $password = "password";
 

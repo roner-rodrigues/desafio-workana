@@ -4,6 +4,7 @@ import ProductList from './components/ProductListForm';
 import ProductForm from './components/ProductCreateForm';
 import ProductTypeCreateForm from './components/ProductTypeCreateForm';
 import SalePage from './pages/SalePage';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
   return (

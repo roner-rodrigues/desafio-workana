@@ -1,0 +1,44 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; 
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px;
+}
+
+.form-container form label {
+  display: flex; 
+  flex-direction: column; 
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-container form input[type="text"],
+.form-container form input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px; 
+  border-radius: 5px;
+  border: 1px solid #ccc; 
+}
+
+.form-container form input[type="submit"] {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}

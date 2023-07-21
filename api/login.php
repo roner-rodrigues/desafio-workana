@@ -26,10 +26,12 @@ if ($method == 'OPTIONS') {
         $statement->execute([':username' => $username]);
         $row = $statement->fetch(PDO::FETCH_ASSOC);
     
-        if ($row && password_verify($password, $row['password'])) {
-            $_SESSION['userid'] = $row['id'];
+        if (isset($row) && password_verify($password, $row['password'])) {
+            $_SESSION['logged_in'] = true;
+            http_response_code(200);
             echo json_encode(['status' => 'Logged in']);
         } else {
+            unset($_SESSION['logged_in']);
             http_response_code(401);
             echo json_encode(['error' => 'Invalid username or password.']);
         }
@@ -41,6 +43,3 @@ if ($method == 'OPTIONS') {
     http_response_code(405);
     echo json_encode(["error" => "Method not allowed."]);
 }
-
-
-

@@ -1,13 +1,14 @@
-import React                 from 'react';
-import ProductList           from './components/ProductListForm';
-import ProductTypeList       from './components/ProductTypeListForm';
-import ProductForm           from './components/ProductCreateForm';
+import React from 'react';
+import ProductList from './components/ProductListForm';
+import ProductTypeList from './components/ProductTypeListForm';
+import ProductForm from './components/ProductCreateForm';
 import ProductTypeCreateForm from './components/ProductTypeCreateForm';
-import SalePage              from './pages/SalePage';
+import SalePage from './pages/SalePage';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import  './styles/App.css';
+import PropTypes from 'prop-types';
 
-function App() {
+function App({ onLogout }) {
   return (
     <Router>
       <div className="App">
@@ -19,6 +20,7 @@ function App() {
               <li><Link to="/product-list">List Products</Link></li>
               <li><Link to="/product-types-list">List Product Types</Link></li>
               <li><Link to="/sale">My Cart</Link></li>
+              <li><button onClick={onLogout}>Logout</button></li>
             </ul>
           </nav>
           <Routes>
@@ -33,5 +35,9 @@ function App() {
     </Router>
   );
 }
+
+App.propTypes = {
+  onLogout: PropTypes.func.isRequired,
+};
 
 export default App;

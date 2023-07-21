@@ -9,9 +9,9 @@ services:
     networks:
       - app-network
 
-  backend:
+  api:
     build: 
-      context: ./backend
+      context: ./api
     ports:
       - '8080:8080'
     depends_on:

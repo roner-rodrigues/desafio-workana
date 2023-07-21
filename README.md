@@ -23,4 +23,11 @@ You can access the application by opening a web browser and navigating to:
 
     http://localhost:3000
 
+## Login Information
+
+For accessing the application, please use the following login credentials:
+
+    Username: ronerrodrigues
+    Password: password
+
 Enjoy exploring the application!

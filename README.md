@@ -1,6 +1,6 @@
 # Workana Programming Challenge
 
-Welcome to the Workana Programming Challenge repository. This document will guide you through the process of setting up the application on your local machine.
+Welcome to the my solution for Workana Programming Challenge. This document will guide you through the process of setting up the application on your local machine.
 
 ## Prerequisites
 Ensure that you have Docker installed on your machine. If not, follow the installation guide appropriate for your system [here](https://docs.docker.com/get-docker/).
